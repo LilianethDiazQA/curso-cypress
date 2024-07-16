@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "allure:generate": "allure generate allure-results --clean",
+    "allure:open": "allure open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.13.0"
+    "@shelex/cypress-allure-plugin": "^2.40.2"
   }
 }
