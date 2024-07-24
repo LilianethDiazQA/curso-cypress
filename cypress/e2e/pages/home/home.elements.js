@@ -2,13 +2,13 @@ export class HomeElements{
     static get categoriesMenu(){
         return{
             get phone (){
-                return cy.contains('a', 'Phones')
+                return cy.contains("a", "Phones")
             },
             get laptots(){
-                return cy.contains('a', 'Laptops')
+                return cy.contains("a", "Laptops")
             },
             get monitor(){
-                return cy.contains('a', 'Monitors')
+                return cy.contains("a", "Monitors")
             }
 
         }
