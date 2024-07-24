@@ -1,7 +1,7 @@
 import { SignupElements } from "./signup.element";
 
 export class SignupMethods{
-    static inserUsername(username){
+    static insertUsername(username){
         SignupElements.textboxes.username.invoke("val",username)
     }
 
