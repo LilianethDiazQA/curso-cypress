@@ -4,7 +4,7 @@ const { configureAllureAdapterPlugins }  = require('@mmisty/cypress-allure-adapt
 module.exports = defineConfig({
     retries: 1,
     e2e: {
-        "video": true,
+        "video": false,
         setupNodeEvents(on, config) {
             configureAllureAdapterPlugins(on, config);
             return config;
