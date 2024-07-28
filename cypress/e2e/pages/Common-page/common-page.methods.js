@@ -3,27 +3,34 @@ import { CommonPageElements } from "./common-page.elements";
 
 export class CommonPageMethods {
     static navigateToDemoBlaze() {
+        cy.clearCookies();
         cy.visit(CommonPageData.url);
     }
 
     static clickOnHomeOption() {
-        CommonPageElements.TopMenu.home.clic();
+        CommonPageElements.TopMenu.home.click();
     }
     static clickOnContactOption() {
-        CommonPageElements.TopMenu.contact.clic();
+        CommonPageElements.TopMenu.contact.click();
     }
     static clickOnAboutUsOption() {
-        CommonPageElements.TopMenu.aboutUs.clic();
+        CommonPageElements.TopMenu.aboutUs.click();
 
     }
     static clickOnCartOption() {
-        CommonPageElements.TopMenu.cart.clic();
+        CommonPageElements.TopMenu.cart.click();
     }
     static clickOnLoginOption() {
-        CommonPageElements.TopMenu.login.clic();
+        CommonPageElements.TopMenu.login.click();
     }
    
     static clickOnSignUpOption() {
-        CommonPageElements.TopMenu.signUp.clic();
+        CommonPageElements.TopMenu.SignUp.click();
  }
+
+    static verifyAlert(expectedMessage){
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(expectedMessage);
+       });
+    }
     }
