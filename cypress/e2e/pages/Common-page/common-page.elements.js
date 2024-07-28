@@ -16,7 +16,7 @@ export class CommonPageElements{
             },
 
             get login(){
-                return cy.contains('a',"Login");
+                return cy.contains('a',"Log in");
             },
 
             get SignUp() {
@@ -25,4 +25,9 @@ export class CommonPageElements{
 
     };
 }
+
+        static get signedUser(){
+            return cy.get('a#nameofuser');
+        }
+
 }

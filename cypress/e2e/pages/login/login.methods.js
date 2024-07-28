@@ -1,4 +1,5 @@
 import { Logger } from "../../util/logger";
+import { CommonPageElements } from "../Common-page/common-page.elements";
 import { LoginElements } from "./login.elements";
 
 export class LoginMethods{
@@ -12,6 +13,10 @@ export class LoginMethods{
 
     static clickOnLoginButton(){
         LoginElements.buttons.login.click()
+    }
+
+    static clickOnLoginOption(){
+        CommonPageElements.TopMenu.login.click()
     }
     /* static login (username,password){
         this.insertUsername(username)
