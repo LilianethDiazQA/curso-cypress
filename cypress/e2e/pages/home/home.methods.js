@@ -11,7 +11,7 @@ export class Homemethods{
     }
 
     static clickOnMonitorsOption() {
-        HomeElements.categoriesMenu.monitors.click()
+        HomeElements.categoriesMenu.monitor.click()
 
     }
 
@@ -19,4 +19,8 @@ export class Homemethods{
         HomeElements.product(productName).click();
 
     }
+    static verifyProductDisplayed(productName){
+        HomeElements.product(productName).should("be.visible")
+    }
+
 }
