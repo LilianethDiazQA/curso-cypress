@@ -9,12 +9,11 @@ export class HomeElements{
             },
             get monitor(){
                 return cy.contains("a", "Monitors")
-            }
-
-        }
+            },
+        };
     }
 
     static product (productName){
-        return cy.contains ("a",productName);
+        return cy.contains ("a",productName,{timeout:30000});
 }
 }

@@ -12,7 +12,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         CommonPageMethods.navigateToDemoBlaze();
 
         Logger.stepNumber(2)
-        Logger.step("Hacer click en 'Log in ' en la barra de navegacion")
+        Logger.step("Hacer click en 'Log in' en la barra de navegacion")
         CommonPageMethods.clickOnLoginOption();
 
         Logger.stepNumber(3)
@@ -21,7 +21,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         LoginMethods.insertPassword(LoginData.validcredentials.password)
 
         Logger.stepNumber(4)
-        Logger.step("Hacer click en 'Log in 'para iniciar sesion")
+        Logger.step("Hacer click en 'Log in'para iniciar sesion")
         LoginMethods.clickOnLoginButton();
         Logger.verification("Verificar qye se redirige al usuario a la página de inicio")
         CommonPageMethods.verifySignedUser(LoginData.validcredentials.username);
@@ -35,7 +35,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         CommonPageMethods.navigateToDemoBlaze();
 
         Logger.stepNumber(2)
-        Logger.step("Hacer click en 'Log in ' en la barra de navegacion")
+        Logger.step("Hacer click en 'Log in' en la barra de navegacion")
         CommonPageMethods.clickOnLoginOption();
 
         Logger.stepNumber(3)
