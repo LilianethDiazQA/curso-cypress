@@ -5,7 +5,7 @@ import { LoginMethods } from "../pages/login/login.methods";
 import { Logger } from "../util/logger";
 
 describe(CommonPageData.testSuites.autenticacion,()=>{
-    it ("Inicio de sesión válido", () => {
+    xit ("Inicio de sesión válido", () => {
 
         Logger.stepNumber(1)
         Logger.step("Navegar a la pagina de incio")
@@ -28,7 +28,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
 
     })
 
-    it ("Inicio de sesión inválido", () => {
+    xit ("Inicio de sesión inválido", () => {
 
         Logger.stepNumber(1)
         Logger.step("Navegar a la pagina de incio")

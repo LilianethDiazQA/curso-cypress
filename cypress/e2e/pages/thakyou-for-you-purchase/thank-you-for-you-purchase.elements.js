@@ -2,7 +2,8 @@ export class ThankYouForYouPurchaseElements{
     static get buttons(){
         return{
             get ok(){
-                return cy.contains('button', 'OK');
+        return cy.get('div.sa-confirm-button-container button');
+
             },
         };
     }
@@ -10,7 +11,7 @@ export class ThankYouForYouPurchaseElements{
     static get icons(){
         return{
             get greenCheckMark(){
-                cy.get('.sa-success');
+                return cy.get('.sa-success');
             },
         };
     }
