@@ -23,8 +23,12 @@ describe(CommonPageData.testSuites.catalogoyCompra, () => {
         Logger.subStep("Navegate to Demoblaze application")
         CommonPageMethods.navigateToDemoBlaze();
         Logger.subStep("Click on 'Log in' link")
+        cy.wait(3000);
         CommonPageMethods.clickOnLoginOption();
+        cy.wait(3000);
         LoginMethods.login(user.username, user.password)
+        LoginMethods.clickOnLoginButton;
+        cy.wait(3000);
 
         Logger.stepNumber(2)
         Logger.step('Navegar a la pagina de inicio')
@@ -88,11 +92,16 @@ describe(CommonPageData.testSuites.catalogoyCompra, () => {
         CommonPageMethods.clickOnLoginOption();
         cy.wait(3000)
         LoginMethods.login(user.username, user.password)
+        cy.wait(1000)
+        LoginMethods.clickOnLoginButton;
+        cy.wait(3000)
 
         Logger.stepNumber(2)
         Logger.step('Navegar a la pagina de inicio')
+        
         cy.wait(3000)
         CommonPageMethods.clickOnHomeOption();
+        cy.wait(3000)
 
 
         Logger.stepNumber(3)

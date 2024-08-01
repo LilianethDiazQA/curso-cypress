@@ -16,15 +16,21 @@ describe(CommonPageData.testSuites.autenticacion, () => {
         CommonPageMethods.clickOnLoginOption();
 
         Logger.stepNumber(3)
+        cy.wait(1000)
         Logger.step("Ingresar un nombre de usuario y contraseña válido")
+        cy.wait(1000)
         LoginMethods.insertUsername(LoginData.validcredentials.username)
+        cy.wait(1000)
         LoginMethods.insertPassword(LoginData.validcredentials.password)
+        cy.wait(1000)
 
         Logger.stepNumber(4)
         Logger.step("Hacer click en 'Log in'para iniciar sesion")
         LoginMethods.clickOnLoginButton();
         Logger.verification("Verificar qye se redirige al usuario a la página de inicio")
+        cy.wait(1000);
         CommonPageMethods.verifySignedUser(LoginData.validcredentials.username);
+        cy.wait(1000);
 
         cy.wait(1000);
         Logger.postCondition('Log out');
