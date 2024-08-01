@@ -1,3 +1,5 @@
+
+
 export class Logger{
     static stepNumber(number){
         const text =`Step # ${number}`;
@@ -24,7 +26,13 @@ export class Logger{
     }
 
     static subVerification(description){
-        const text =`substep - ${description}`;
+        const text =`Subverification - ${description}`;
+        cy.log(text)
+        cy.allure().step(text)
+    }
+
+    static postCondition(description){
+        const text =`POSTCONDITION- ${description}`;
         cy.log(text)
         cy.allure().step(text)
     }

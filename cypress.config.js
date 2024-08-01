@@ -8,7 +8,11 @@ module.exports = defineConfig({
         setupNodeEvents(on, config) {
             configureAllureAdapterPlugins(on, config);
             return config;
+
+            
         }
+
+      
     }
     
 });

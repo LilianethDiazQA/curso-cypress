@@ -22,6 +22,11 @@ export class CommonPageElements{
             get SignUp() {
                 return cy.contains('a',"Sign up");
             },
+            
+            get logout(){
+                return cy.get ('#logout2')
+            }
+
 
     };
 }

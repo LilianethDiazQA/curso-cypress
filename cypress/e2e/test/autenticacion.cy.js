@@ -4,8 +4,8 @@ import { LoginData } from "../pages/login/login.data";
 import { LoginMethods } from "../pages/login/login.methods";
 import { Logger } from "../util/logger";
 
-describe(CommonPageData.testSuites.autenticacion,()=>{
-    it ("Inicio de sesión válido", () => {
+describe(CommonPageData.testSuites.autenticacion, () => {
+    it("Inicio de sesión válido", () => {
 
         Logger.stepNumber(1)
         Logger.step("Navegar a la pagina de incio")
@@ -26,9 +26,14 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         Logger.verification("Verificar qye se redirige al usuario a la página de inicio")
         CommonPageMethods.verifySignedUser(LoginData.validcredentials.username);
 
+        cy.wait(1000);
+        Logger.postCondition('Log out');
+        CommonPageMethods.logout();
+        cy.wait(1000);
+
     })
 
-    xit ("Inicio de sesión inválido", () => {
+    it("Inicio de sesión inválido", () => {
 
         Logger.stepNumber(1)
         Logger.step("Navegar a la pagina de incio")
@@ -37,6 +42,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         Logger.stepNumber(2)
         Logger.step("Hacer click en 'Log in' en la barra de navegacion")
         CommonPageMethods.clickOnLoginOption();
+
 
         Logger.stepNumber(3)
         Logger.step("Ingresar un nombre de usuario y/o contraseña inválido")
@@ -50,6 +56,7 @@ describe(CommonPageData.testSuites.autenticacion,()=>{
         LoginMethods.verifyWrongPasswordMessage();
     })
 
-    
+
+
 
 })
