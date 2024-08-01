@@ -1,20 +1,47 @@
+import { Logger } from "../../util/logger";
+import { CommonPageMethods } from "../Common-page/common-page.methods";
+import { LoginMethods } from "../login/login.methods";
 import { CartElements } from "./cart.elements";
 
-export class CartMethods{
-    static clickOnDeleteLink(productName){
+export class CartMethods {
+    static clickOnDeleteLink(productName) {
         CartElements.links.delete(productName).click()
 
     }
 
-    static verifyProductAdded(productName){
+    static verifyProductAdded(productName) {
         CartElements.links.delete(productName).should('be.visible')
     }
-//este metodo se busco en la documentación de cypress
-    static verifyCardPageIsShown(){
+    //este metodo se busco en la documentación de cypress
+    static verifyCardPageIsShown() {
         cy.url().should('include', 'cart.html')
     }
-    static ClickOnPlaceOrderButton(){
+    static ClickOnPlaceOrderButton() {
         CartElements.buttons.placeOrder.click();
+    }
+
+    static deleteProducts() {
+        cy.get('a[onclick*="deleteItem"]').each(link => {
+            link.click()
+            cy.wait(1000)
+        })
+    }
+
+    static emptyCart(username, password) {
+        Logger.subStep(`Navigate to demoblaze`);
+        CommonPageMethods.navigateToDemoBlaze();
+        Logger.subStep(`Log out`);
+        CommonPageMethods.logout();
+        Logger.subStep(`Click on Home option`);
+        CommonPageMethods.clickOnHomeOption();
+        Logger.subStep(`Click on Login`);
+        CommonPageMethods.clickOnLoginOption();
+        Logger.subStep(`Login with this credentials ${username} ${password}`)
+        LoginMethods.login(username, password);
+        Logger.subStep(`Click on Cart option`);
+        CommonPageMethods.clickOnCartOption();
+        Logger.subStep(`Delete products from cart`)
+        this.deleteProducts();
     }
 
 }
