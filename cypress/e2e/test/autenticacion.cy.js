@@ -52,8 +52,11 @@ describe(CommonPageData.testSuites.autenticacion, () => {
 
         Logger.stepNumber(3)
         Logger.step("Ingresar un nombre de usuario y/o contraseña inválido")
+        cy.wait(1000);
         LoginMethods.insertUsername(LoginData.validcredentials.username)
+        cy.wait(1000);
         LoginMethods.insertPassword("contrasenainvalida")
+        cy.wait(1000);
 
         Logger.stepNumber(4)
         Logger.step("Hacer click en 'Log in 'para iniciar sesion")

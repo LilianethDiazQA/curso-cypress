@@ -3,7 +3,9 @@ import { ThankYouForYouPurchaseElements } from "./thank-you-for-you-purchase.ele
 export class ThankYouForYouPurchaseMethods{
     
     static clickOnOkButton(){
-        return cy.contains('button', 'OK').click();
+        cy.wait(1000);
+        ThankYouForYouPurchaseElements.buttons.ok.click();
+
 
         }
     static verifyGrennCheckMarkisDisplayed(){
