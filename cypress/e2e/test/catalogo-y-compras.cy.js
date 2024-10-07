@@ -1,4 +1,4 @@
-import { CartMethods } from "../pages/cart/cart.methods";
+/* import { CartMethods } from "../pages/cart/cart.methods";
 import { CommonPageData } from "../pages/Common-page/common-page.data";
 import { CommonPageMethods } from "../pages/Common-page/common-page.methods";
 import { Homemethods } from "../pages/home/home.methods";
@@ -169,4 +169,4 @@ describe(CommonPageData.testSuites.catalogoyCompra, () => {
         Homemethods.verifyHomePageIsShown();
 
     })
-})
+}) */

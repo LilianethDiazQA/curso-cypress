@@ -1,4 +1,4 @@
-import { CommonPageData } from "../pages/Common-page/common-page.data";
+/* import { CommonPageData } from "../pages/Common-page/common-page.data";
 import { CommonPageMethods } from "../pages/Common-page/common-page.methods";
 import { LoginData } from "../pages/login/login.data";
 import { SignupMethods } from "../pages/signup/signup.methods";
@@ -56,4 +56,4 @@ describe (CommonPageData.testSuites.registro,()=>{
     });
 }
 
-);
+); */

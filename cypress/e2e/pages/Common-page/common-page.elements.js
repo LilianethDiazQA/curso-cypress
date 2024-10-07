@@ -1,26 +1,26 @@
 export class CommonPageElements{
     static get TopMenu (){
         return{
-            get home (){
-                return cy.contains('a',"Home");
+            get PreparaTuViaje (){
+                 return cy.contains('p','¡PREPARA TU VIAJE!'); 
             },
-            get contact (){
-                return cy.contains('a',"Contact");
+            get ahorra (){
+                return cy.contains('p',"AHORRA");
         },
-            get aboutUs(){
-                return cy.contains('a',"AboutUs");
+            get serviciosAdicionales(){
+                return cy.contains('p',"SERVICIOS ADICIONALES");
             },
 
-            get cart(){
-                return cy.contains('a',"Cart");
+            get clubMuvify(){
+                return cy.contains('p',"CLUB MUVIFY");
             },
 
-            get login(){
-                return cy.contains('a',"Log in");
+            get ayuda(){
+                return cy.contains('p',"AYUDA");
             },
 
-            get SignUp() {
-                return cy.contains('a',"Sign up");
+            get Login() {
+                return cy.get('img[src="/images/icons/Unregistered-user.svg"]');
             },
             
             get logout(){
@@ -30,6 +30,8 @@ export class CommonPageElements{
 
     };
 }
+
+
 
         static get signedUser(){
             return cy.get('a#nameofuser');

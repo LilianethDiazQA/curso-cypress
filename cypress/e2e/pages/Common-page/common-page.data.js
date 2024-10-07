@@ -1,6 +1,6 @@
 export class CommonPageData{
     static get url (){
-        return ("https://www.demoblaze.com/");
+        return ("https://turbusdweb.kupos.cl/");
     }
 
     static get testSuites(){
@@ -10,8 +10,8 @@ export class CommonPageData{
             catalogoyCompra:'Catálogo y Compra',
 
         };
-
-
     }
+
+  
 
 }
