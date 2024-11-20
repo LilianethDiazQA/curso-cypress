@@ -1,1 +1,33 @@
 node_modules/*
+
+/allure-results/
+/allure-report/
+/behaviors.csv
+/categories.csv
+/suites.json
+/timeline.json
+
+# Ignorar archivos temporales
+*.tmp
+*.bak
+
+# Ignorar configuraciones de IDE o editor (opcional)
+.vscode/
+.idea/
+
+# Ignorar logs
+*.log
+
+# Ignorar reportes de pruebas (opcional)
+*.html
+*.csv
+*.json
+
+# Ignorar imágenes comunes
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.svg
+*.webp

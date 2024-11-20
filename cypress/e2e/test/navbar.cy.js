@@ -1,8 +1,8 @@
-import { CommonPageData } from "./pages/Common-page/common-page.data";
-import { CommonPageMethods } from "./pages/Common-page/common-page.methods";
-import { Logger } from "./util/logger";
 
-xdescribe('kupos', () => {
+import { CommonPageMethods } from "../pages/Common-page/common-page.methods";
+import { Logger } from "../util/logger";
+
+describe('Botones NavBar', () => {
   it('Navegar a Kupos', () => {
     Logger.stepNumber(1)
     /* Logger.step('Navegar a la pagina de inicio') */

@@ -2,119 +2,47 @@ import { CommonPageData } from "../pages/Common-page/common-page.data";
 import { CommonPageMethods } from "../pages/Common-page/common-page.methods";
 
 describe('Ida', () => {
-    it('Ofertar viaje de Ida', () => {
+
+    it('Ofertar viaje de Ida -Test 1', () => {
         CommonPageMethods.navigateToKupos()
         /*  cy.get('#react-select-4-input').click().type('Santiago').type('{enter}');  esta forma es escribiendo la palabra y enter */
         /*  cy.wait(10000); */
 
         // Abre la lista de opciones
         cy.get('#react-select-4-input').click();
+        cy.wait(2000);
+        CommonPageMethods.SeleccionarCiudadOrigen('Santiago, Chile');
+        CommonPageMethods.SeleccionarCiudadDestino('Villarrica, Chile');
 
-        // Espera a que el menú sea visible antes de buscar opciones esta forma es dandole click se hizo de esta manera porque es un elemento dinamico 
-        cy.get('.css-1nmdiq5-menu', { timeout: 10000 }).should('be.visible').as('menu');
-        cy.get('@menu').find('div').contains('Santiago, Chile').click();
-        /* cy.wait(5000); */
-
-
-        cy.get('.css-1nmdiq5-menu', { timeout: 10000 }).should('be.visible').as('menu');
-        cy.get('@menu').find('div').contains('Villarrica, Chile').click();
-        /* cy.wait(5000); */
 
         cy.get('input.bold-text').click();
-        
-        cy.get('div.undefined span').click();
-        /* cy.contains('span', '17').click(); */
+        /* cy.get('div.undefined span').click(); */
+        cy.contains('span', '30').click();
         cy.contains('span', 'Buscar').click();
+        cy.wait(2000);
+        cy.get('.kupos-button_kupos_button__h6fCb.kupos-button').eq(2).should('be.visible').contains('Comprar').click();
+        cy.wait(20000);
 
-        cy.wait(2000); 
+        CommonPageMethods.seleccionarAsientoDisponible();
 
-        cy.get('.kupos-button_kupos_button__h6fCb.kupos-button').eq(1).should('be.visible').contains('Comprar').click();
-
-        /*  cy.get('.kupos-button_kupos_button__h6fCb.kupos-button').eq(1).contains('Comprar').click(); */ //esto estaba antes con un cy wait lo cambie para eliminar las pausas 
-        cy.wait(10000);
-
-        function seleccionarAsientoDisponible() {
-            cy.get('ul li').each(($li) => {
-                cy.log('Revisando asiento:', $li); // Para verificar cada elemento <li> que está siendo iterado
-        
-                // Cambiar el selector aquí
-                const $asiento = $li.find('.icon-salon-cama-seat_available'); // Actualizar el selector a 'icon-salon-cama-seat_available'
-                
-                if ($asiento.length > 0) { // Verificamos si el asiento está disponible
-                    cy.log('Asiento disponible encontrado, haciendo clic'); // Confirmar si se encuentra el asiento disponible
-                    cy.wrap($li).click(); // Le damos clic al asiento disponible
-                    return false; // Terminamos el ciclo una vez encontrado el asiento disponible
-                } else {
-                    cy.log('No hay asiento disponible en este <li>'); // Para indicar que el asiento no estaba disponible
-                }
-            });
-        }
-        
-        
-        seleccionarAsientoDisponible();
-        
-
-        cy.wait(20000); 
 
         cy.contains('div', 'Continuar:').should('be.visible').click();
-        cy.wait(20000);
+        cy.wait(15000);
 
-        cy.get('.kupos-input_common_kupos_input__GoBgX').first().click().type('27982694-9');
-        /* cy.wait(2000); */
+        CommonPageMethods.ingresarDatosPasajero('27982694-9');
+        CommonPageMethods.procesarPagoDebito('4051885600446623', '11111111-1', '123', '7600');
 
-        cy.get('.payment-checkbox').click()
-        cy.get('.pay-now-section > .pay-now-button').click()
+        // Verifica que el elemento con la clase está visible y contiene el texto esperado
+        cy.get('.success-failure_cancel_ticket_done__FINCn').should('contain.text', '¡Listo!');
 
-        cy.get('.name-input').eq(1).find('input').click();
+        cy.contains('button', 'DESCARGA TU COMPROBANTE').click()
+            .invoke('attr', 'href')
+            .then((href) => {
+                // Validamos que la URL sea la esperada
+                expect(href).to.include('/bus/booking/ticket-print'); // Ajusta con base en la URL esperada
+            });
 
-        /* cy.wait(20000); */
-
-
-        cy.get('.accept-tnc-1 > .kupos-checkbox_common_kupos_checkbox__bI9l6 > label > .kupos-checkbox_kupos_checkbox__mwn0P > .kupos-checkbox_icon_check_square_pink_line__C8Rou').click()
-        cy.wait(5000);
-        cy.get('.pay-now-section .pay-now-button').click();
-        cy.wait(20000);
-
-
-        /*         cy.origin('https://webpay3gint.transbank.cl/webpayserver/dist/#/', () => { */
-
-
-
-        cy.get('body').click()  // Clic en cualquier parte de la pantalla
-        cy.get('#debito').click()
-        cy.get('button.combobox-button').should('be.visible').and('not.be.disabled').click();
-        cy.get('li > button').click();
-        cy.get('#pan').type('4051885600446623');
-        cy.get('button.submit').should('be.visible').and('not.be.disabled').click();
-        cy.wait(20000);
-
-        cy.get('input[name="rutClient"]').type('11111111-1');
-        cy.get('input[name="passwordClient"]').type('123');
-        cy.get('input[type="submit"][value="Aceptar"]').click();
-        cy.get('input[type="submit"][value="Continuar"]').click();
-        cy.wait(20000);
-        cy.get('input[placeholder="Enter Pin"]').type('7600');
-        cy.wait(20000);
-
-
-
-
-
-        /* cy.get('.combobox-button.combobox-button--open').click() */
-        /*          cy.contains('button', 'TEST COMMERCE BANK').click() */
-
-
-        /* }) */
-
-        /*  cy.intercept('POST', '/transbank-endpoint', { fixture: 'mockedResponse.json' }).as('transbankRequest');
-         cy.get('#debito').click();
-         cy.wait('@transbankRequest').its('response.statusCode').should('eq', 200); */
-
-
-
-
-
-
+        cy.wait(15000);
 
     })
 
